@@ -192,9 +192,10 @@
           {%- if entry.award_name %}{{ entry.award_name }}{% else %}Awarded{% endif -%}
         </a>
       {% endif %}
-      {% if entry.abstract %}
+      {% comment %} {% if entry.abstract %}
         <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
-      {% endif %}
+      {% endif %} {% endcomment %}
+      {% comment %} {# no toggle button for abstract #} {% endcomment %}
       {% if entry.doi %}
         <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button">DOI</a>
       {% endif %}
@@ -346,10 +347,16 @@
       </div>
     {% endif %}
 
-    {% if entry.abstract %}
+    {% comment %} {% if entry.abstract %}
       <!-- Hidden abstract block -->
       <div class="abstract hidden">
         <p>{{ entry.abstract }}</p>
+      </div>
+    {% endif %} {% endcomment %}
+
+    {% if entry.abstract %}
+      <div class="abstract mt-2">
+        {{ entry.abstract | markdownify }}
       </div>
     {% endif %}
 
