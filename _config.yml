@@ -656,3 +656,9 @@ jsonresume:
   - languages
   - interests
   - references
+
+
+minifier:
+  exclude:
+    - "**/*.json"
+    - "**/*.webmanifest"
